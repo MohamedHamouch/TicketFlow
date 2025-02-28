@@ -16,7 +16,7 @@ return new class extends Migration
             $table->foreignId('ticket_id')->constrained()->onDelete('cascade');
             $table->foreignId('developer_id')->constrained('users')->onDelete('cascade');
             $table->foreignId('admin_id')->constrained('users')->onDelete('cascade');
-            $table->timestamp('assigned_at')->useCurrent();
+            $table->timestamps();
         });
     }
 

@@ -1,3 +1,43 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* Dropdown Menu Styles */
+.user-menu-items {
+    transform-origin: top right;
+    transition: all 0.1s ease-out;
+}
+
+.user-menu-items:not(.hidden) {
+    animation: scale-in 0.15s ease-in-out;
+}
+
+@keyframes scale-in {
+    from {
+        opacity: 0;
+        transform: scale(0.95);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+/* Navigation Styles */
+.nav-link {
+    @apply text-white hover:bg-indigo-500 px-3 py-2 rounded-md text-sm font-medium;
+}
+
+.nav-button {
+    @apply inline-flex items-center px-3 py-2 border border-transparent text-sm leading-4 font-medium rounded-md text-white hover:bg-indigo-500 focus:outline-none transition ease-in-out duration-150;
+}
+
+/* Mobile Menu Styles */
+.mobile-menu-link {
+    @apply text-white block px-3 py-2 rounded-md text-base font-medium;
+}
+
+/* User Dropdown Styles */
+.dropdown-item {
+    @apply text-gray-700 block px-4 py-2 text-sm hover:bg-gray-100;
+}

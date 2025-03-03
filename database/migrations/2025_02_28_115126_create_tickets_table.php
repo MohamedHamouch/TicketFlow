@@ -19,7 +19,6 @@ return new class extends Migration {
             $table->enum('priority', ['High', 'Medium', 'Low']);
             $table->enum('status', ['Open', 'In Progress', 'Closed'])->default('Open');
             $table->string('os');
-            $table->timestamp('assigned_at')->nullable();
             $table->timestamps();
         });
     }

@@ -3,6 +3,8 @@
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ClientTicketController;
+use App\Http\Controllers\AdminTicketController;
+
 
 Route::get('/', function () {
     return view('home');
@@ -27,4 +29,8 @@ Route::middleware(['auth', 'role:client'])->prefix('client')->name('client.')->g
     Route::resource('tickets', ClientTicketController::class)->except(['show']);
 });
 
+Route::middleware(['auth', 'role:admin'])->prefix('admin')->name('admin.')->group(function () {
+    Route::get('/tickets', [AdminTicketController::class, 'index'])->name('tickets.index');
+    Route::post('/tickets/{ticket}/assign', [AdminTicketController::class, 'assignDeveloper'])->name('tickets.assign');
+});
 require __DIR__.'/auth.php';

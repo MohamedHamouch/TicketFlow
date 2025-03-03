@@ -6,6 +6,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class Assignment extends Model
 {
+
+    protected $fillable = ['ticket_id', 'developer_id', 'admin_id'];
     public function ticket()
     {
         return $this->belongsTo(Ticket::class);

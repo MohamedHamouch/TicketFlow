@@ -23,4 +23,21 @@ class Ticket extends Model
     {
         return $this->hasMany(Assignment::class);
     }
+
+    public function currentAssignment()
+    {
+        return $this->hasOne(Assignment::class)->latest();
+    }
+
+    public function currentDeveloper()
+    {
+        return $this->hasOneThrough(
+            User::class,
+            Assignment::class,
+            'ticket_id', // Foreign key on assignments table
+            'id',        // Foreign key on users table
+            'id',        // Local key on tickets table
+            'developer_id' // Local key on assignments table
+        )->latest('assignments.created_at');
+    }
 }

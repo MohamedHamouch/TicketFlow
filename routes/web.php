@@ -4,6 +4,7 @@ use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ClientTicketController;
 use App\Http\Controllers\AdminTicketController;
+use App\Http\Controllers\DeveloperTicketController;
 
 
 Route::get('/', function () {
@@ -33,4 +34,10 @@ Route::middleware(['auth', 'role:admin'])->prefix('admin')->name('admin.')->grou
     Route::get('/tickets', [AdminTicketController::class, 'index'])->name('tickets.index');
     Route::post('/tickets/{ticket}/assign', [AdminTicketController::class, 'assignDeveloper'])->name('tickets.assign');
 });
+
+Route::middleware(['auth', 'role:developer'])->prefix('developer')->name('developer.')->group(function () {
+    Route::get('/tickets', [DeveloperTicketController::class, 'index'])->name('tickets.index');
+    Route::patch('/tickets/{ticket}/close', [DeveloperTicketController::class, 'closeTicket'])->name('tickets.close');
+});
+
 require __DIR__.'/auth.php';

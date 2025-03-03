@@ -36,7 +36,7 @@
                                         <a href="{{ route('client.tickets.index') }}" class="nav-link">My Tickets</a>
                                         <a href="{{ route('client.tickets.create') }}" class="nav-link">Create Ticket</a>
                                     @elseif(auth()->user()->role === 'developer')
-                                        <a href="#" class="nav-link">Assigned Tickets</a>
+                                        <a href="{{route('developer.tickets.index')}}" class="nav-link">Assigned Tickets</a>
                                     @elseif(auth()->user()->role === 'admin')
                                         <a href="{{ route('admin.tickets.index') }}" class="nav-link">Manage Tickets</a>
                                         <a href="#" class="nav-link">Manage Users</a>

@@ -21,7 +21,7 @@
                             <!-- Replace the existing buttons div with this: -->
                             <div class="flex flex-col sm:flex-row space-y-3 sm:space-y-0 sm:space-x-4 mb-6">
                                 @auth
-                                    <a href="{{ route('dashboard') }}"
+                                    <a href=""
                                         class="inline-flex items-center justify-center px-5 py-3 border border-transparent text-base font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700">
                                         Go to Dashboard
                                         <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 ml-2" viewBox="0 0 20 20"
